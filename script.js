@@ -1,92 +1,59 @@
-// Menu Mobile Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+/* Cellfie — interações da página (sem dependências externas) */
+(function () {
+  "use strict";
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+  var header = document.querySelector(".site-header");
+  var toggle = document.querySelector(".nav__toggle");
+  var menu = document.getElementById("menu-principal");
 
-// Fechar menu ao clicar em um link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+  /* Sombra/borda do cabeçalho ao rolar */
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* Menu mobile */
+  function closeMenu() {
+    if (!menu || !toggle) return;
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menu");
+  }
+
+  function openMenu() {
+    if (!menu || !toggle) return;
+    menu.classList.add("is-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Fechar menu");
+  }
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () {
+      var isOpen = menu.classList.contains("is-open");
+      if (isOpen) { closeMenu(); } else { openMenu(); }
     });
-});
 
-// Fechar menu ao clicar fora
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-container')) {
-        navMenu.classList.remove('active');
-    }
-});
-
-// Smooth scroll para botões
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        // Se o botão tem um href específico
-        const href = button.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+    menu.addEventListener("click", function (e) {
+      var link = e.target.closest("a");
+      if (link) closeMenu();
     });
-});
 
-// Botão "Ver Produtos" no hero
-document.querySelector('.hero .btn-primary').addEventListener('click', () => {
-    document.querySelector('#produtos').scrollIntoView({ behavior: 'smooth' });
-});
-
-// Botão "Começar Compras" na CTA
-document.querySelector('.cta .btn-primary').addEventListener('click', () => {
-    document.querySelector('#produtos').scrollIntoView({ behavior: 'smooth' });
-});
-
-// Animação de scroll para elementos
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
     });
-}, observerOptions);
 
-// Aplicar animação aos cards
-document.querySelectorAll('.produto-card, .feature-item, .depoimento-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
-});
-
-// Analytics simples - rastrear cliques
-document.querySelectorAll('button, a').forEach(element => {
-    element.addEventListener('click', () => {
-        console.log('Clicou em:', element.textContent.trim());
+    document.addEventListener("click", function (e) {
+      if (!menu.classList.contains("is-open")) return;
+      if (e.target.closest(".nav") || e.target.closest(".nav__toggle")) return;
+      closeMenu();
     });
-});
 
-// Validação de email simples
-const emailInput = document.querySelector('input[type="email"]');
-if (emailInput) {
-    emailInput.addEventListener('blur', () => {
-        const email = emailInput.value;
-        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        if (email && !isValid) {
-            emailInput.style.borderColor = '#ff006e';
-        } else {
-            emailInput.style.borderColor = '#28a745';
-        }
-    });
-}
+    var mq = window.matchMedia("(min-width: 841px)");
+    var syncMq = function () { if (mq.matches) closeMenu(); };
+    if (mq.addEventListener) { mq.addEventListener("change", syncMq); }
+    else if (mq.addListener) { mq.addListener(syncMq); }
+  }
+})();

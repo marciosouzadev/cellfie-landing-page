@@ -3,6 +3,58 @@
    Tema escuro único (inspirado no letreiro neon da marca)
    ============================================================ */
 
+/* ---------- Fontes (auto-hospedadas — sem requisições a terceiros) ----------
+   Chakra Petch e IBM Plex Sans · SIL Open Font License 1.1
+   Arquivos em /fonts (ver fonts/README.txt) */
+@font-face {
+  font-family: "Chakra Petch";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/chakra-petch-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/chakra-petch-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/chakra-petch-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/chakra-petch-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --bg:          #0E0E0F;
   --bg-alt:      #141416;
@@ -561,6 +613,192 @@ h3 { font-size: 1.18rem; letter-spacing: 0; }
   .local__actions .btn { flex: 1 1 100%; justify-content: center; }
   .site-footer__grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   Sem JavaScript (fallback)
+   ============================================================ */
+.no-js .nav__toggle { display: none; }
+.no-js .nav__links {
+  position: static;
+  clip-path: none;
+  opacity: 1;
+  pointer-events: auto;
+  flex-wrap: wrap;
+}
+.no-js .cookie-banner,
+.no-js .prefs-open { display: none !important; }
+
+/* ============================================================
+   Aviso de privacidade / preferências (Cookie Consent)
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: min(680px, calc(100% - 32px));
+  z-index: 150;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, .6);
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner h2 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+.cookie-banner p {
+  font-size: .9rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.cookie-banner p a { color: var(--yellow); text-decoration: underline; }
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cookie-banner__actions .btn { font-size: .88rem; padding: 11px 18px; }
+
+/* Modal de preferências */
+.prefs {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0;
+  width: min(560px, calc(100% - 32px));
+  max-height: min(85vh, 720px);
+}
+.prefs::backdrop { background: rgba(0, 0, 0, .6); backdrop-filter: blur(2px); }
+.prefs__inner { padding: clamp(22px, 4vw, 32px); overflow-y: auto; }
+.prefs h2 { font-size: 1.3rem; margin-bottom: 6px; }
+.prefs__intro { color: var(--text-dim); font-size: .92rem; margin-bottom: 20px; }
+.prefs__group {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.prefs__group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.prefs__group h3 { font-size: 1rem; }
+.prefs__group p { font-size: .85rem; color: var(--text-dim); margin-top: 6px; }
+.prefs__state {
+  font-family: var(--font-display);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  white-space: nowrap;
+}
+.prefs__state--on { color: var(--yellow); }
+.prefs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.prefs input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--yellow); }
+.prefs input[type="checkbox"]:disabled { opacity: .5; }
+
+/* ============================================================
+   Páginas legais (/privacidade, /cookies, /termos-de-uso)
+   ============================================================ */
+.legal {
+  max-width: 780px;
+  margin-inline: auto;
+  padding-block: clamp(48px, 8vw, 88px);
+}
+.legal__meta {
+  color: var(--text-mute);
+  font-size: .85rem;
+  margin-bottom: 8px;
+}
+.legal h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 16px; }
+.legal h2 {
+  font-size: 1.25rem;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.legal h3 { font-size: 1.02rem; margin-top: 22px; margin-bottom: 8px; }
+.legal p, .legal li { color: var(--text-dim); font-size: .96rem; }
+.legal p + p { margin-top: 12px; }
+.legal ul, .legal ol { margin: 12px 0 12px 22px; display: grid; gap: 8px; }
+.legal a { color: var(--yellow); text-decoration: underline; }
+.legal strong { color: var(--text); }
+.legal .placeholder {
+  background: rgba(255, 195, 0, .12);
+  border: 1px dashed var(--yellow-deep);
+  color: var(--text);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: .9em;
+}
+.legal .flag {
+  display: inline-block;
+  font-size: .8rem;
+  font-family: var(--font-display);
+  letter-spacing: .04em;
+  color: var(--yellow);
+  border: 1px solid var(--yellow-deep);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 4px;
+}
+.legal__table-wrap { overflow-x: auto; margin: 16px 0; }
+.legal table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 520px;
+  font-size: .88rem;
+}
+.legal th, .legal td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  color: var(--text-dim);
+}
+.legal th { color: var(--text); font-family: var(--font-display); font-weight: 600; background: var(--surface); }
+.legal__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  font-size: .9rem;
+  color: var(--text-dim);
+}
+.legal__back:hover { color: var(--yellow); }
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+  padding-block: 20px;
+  border-top: 1px solid var(--line);
+}
+.site-footer__legal a,
+.site-footer__legal button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-dim);
+  font: inherit;
+  font-size: .85rem;
+}
+.site-footer__legal a:hover,
+.site-footer__legal button:hover { color: var(--yellow); }
 
 /* ============================================================
    Movimento reduzido

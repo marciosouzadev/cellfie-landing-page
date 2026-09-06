@@ -1,32 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Segurança: política de conteúdo restritiva, sem scripts de terceiros -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; frame-src 'none'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; form-action 'self'; upgrade-insecure-requests">
+  <!-- Segurança: Content-Security-Policy restritiva. Sem terceiros: nenhum
+       script, estilo, fonte, imagem ou conexão externa é permitido. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-src 'none'; child-src 'none'; object-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0E0E0F">
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
   <title>Cellfie Barreirinha</title>
   <meta name="description" content="Cellfie — acessórios e assistência técnica de celulares no Barreirinha, Curitiba. Dentro do Supermercado Condor da Av. Anita Garibaldi. Troca de tela, troca de bateria, películas e orçamento sem compromisso.">
+  <link rel="canonical" href="https://marciosouzadev.github.io/cellfie-landing-page/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Cellfie — Acessórios e Assistência">
+  <meta property="og:url" content="https://marciosouzadev.github.io/cellfie-landing-page/">
   <meta property="og:title" content="Cellfie — Acessórios e Assistência Técnica">
   <meta property="og:description" content="A nova loja de acessórios e assistência técnica de celulares no Barreirinha, Curitiba. Dentro do Supermercado Condor.">
-  <meta property="og:image" content="logo.jpeg">
+  <meta property="og:image" content="https://marciosouzadev.github.io/cellfie-landing-page/logo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/jpeg" href="logo.jpeg">
   <link rel="apple-touch-icon" href="logo.jpeg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-
   <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobilePhoneStore",
+    "name": "Cellfie — Acessórios e Assistência",
+    "description": "Loja de acessórios e assistência técnica de celulares no bairro Barreirinha, em Curitiba.",
+    "url": "https://marciosouzadev.github.io/cellfie-landing-page/",
+    "image": "https://marciosouzadev.github.io/cellfie-landing-page/logo.jpeg",
+    "telephone": "+55-41-99805-4597",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Anita Garibaldi, 6148 — Barreirinha",
+      "addressLocality": "Curitiba",
+      "addressRegion": "PR",
+      "postalCode": "80540-400",
+      "addressCountry": "BR"
+    },
+    "areaServed": "Curitiba e Região Metropolitana",
+    "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-13:00"],
+    "sameAs": ["https://instagram.com/celfie_barreirinha"]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -278,10 +304,90 @@
       </div>
     </div>
 
+    <nav class="wrap site-footer__legal" aria-label="Políticas e privacidade">
+      <a href="privacidade/">Política de Privacidade</a>
+      <a href="cookies/">Política de Cookies</a>
+      <a href="termos-de-uso/">Termos de Uso</a>
+      <button type="button" class="prefs-open" data-open-prefs>Preferências de privacidade</button>
+    </nav>
+
     <div class="wrap site-footer__bottom">
       <p>© 2026 Cellfie — Acessórios e Assistência. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <!-- Aviso de privacidade (exibido só quando ainda não há registro de escolha) -->
+  <aside class="cookie-banner" id="cookie-banner" role="dialog" aria-modal="false"
+         aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-text" hidden>
+    <h2 id="cookie-banner-title">Sua privacidade</h2>
+    <p id="cookie-banner-text">
+      Este site usa apenas armazenamento essencial para funcionar. Não utilizamos
+      cookies de rastreamento, analytics, publicidade ou scripts de terceiros.
+      Saiba mais na <a href="cookies/">Política de Cookies</a> e na
+      <a href="privacidade/">Política de Privacidade</a>.
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--primary btn--sm" data-consent="accept">Entendi</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-consent="reject">Recusar opcionais</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-open-prefs>Preferências</button>
+    </div>
+  </aside>
+
+  <!-- Central de preferências de privacidade -->
+  <dialog class="prefs" id="prefs-dialog" aria-labelledby="prefs-title">
+    <div class="prefs__inner">
+      <h2 id="prefs-title">Preferências de privacidade</h2>
+      <p class="prefs__intro">
+        Controle as categorias de armazenamento e tecnologias que o site pode usar.
+        Sua escolha fica registrada apenas neste navegador, com data e versão.
+      </p>
+
+      <div class="prefs__group">
+        <div class="prefs__group-head">
+          <h3>Necessários</h3>
+          <span class="prefs__state prefs__state--on">Sempre ativos</span>
+        </div>
+        <p>
+          Essenciais para exibir a página e guardar a sua própria escolha de
+          privacidade. Não identificam você e não são compartilhados.
+        </p>
+      </div>
+
+      <div class="prefs__group">
+        <div class="prefs__group-head">
+          <h3>Preferências</h3>
+          <span class="prefs__state" data-state-for="preferences">Não utilizado</span>
+        </div>
+        <p>Lembrar ajustes de visualização. Nenhuma tecnologia desta categoria está em uso hoje.</p>
+        <label><input type="checkbox" data-cat="preferences" disabled> Ativar quando disponível</label>
+      </div>
+
+      <div class="prefs__group">
+        <div class="prefs__group-head">
+          <h3>Estatísticas</h3>
+          <span class="prefs__state" data-state-for="statistics">Não utilizado</span>
+        </div>
+        <p>Medir de forma agregada como o site é usado. Nenhuma ferramenta de analytics está instalada hoje.</p>
+        <label><input type="checkbox" data-cat="statistics" disabled> Ativar quando disponível</label>
+      </div>
+
+      <div class="prefs__group">
+        <div class="prefs__group-head">
+          <h3>Marketing</h3>
+          <span class="prefs__state" data-state-for="marketing">Não utilizado</span>
+        </div>
+        <p>Publicidade e mensuração de campanhas. Nenhum pixel ou cookie de marketing está instalado hoje.</p>
+        <label><input type="checkbox" data-cat="marketing" disabled> Ativar quando disponível</label>
+      </div>
+
+      <div class="prefs__actions">
+        <button type="button" class="btn btn--primary btn--sm" data-consent="accept">Aceitar disponíveis</button>
+        <button type="button" class="btn btn--ghost btn--sm" data-consent="reject">Recusar opcionais</button>
+        <button type="button" class="btn btn--ghost btn--sm" data-consent="revoke">Apagar meu registro</button>
+        <button type="button" class="btn btn--ghost btn--sm" data-close-prefs>Fechar</button>
+      </div>
+    </div>
+  </dialog>
 
   <script src="script.js" defer></script>
 </body>

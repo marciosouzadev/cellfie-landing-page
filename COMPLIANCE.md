@@ -57,7 +57,7 @@ técnica e documental possível para um site estático.
 | Sem fallback sem-JS | 🟢 corrigido | Baixo | `class="no-js"` + regras CSS de fallback | `index.html`, `styles.css` |
 | Sem página 404 própria | 🟢 corrigido | Baixo | `404.html` na identidade do site | `404.html` |
 | Horário de funcionamento / CEP não confirmados | ⚪ | Baixo | Placeholder + flag nas políticas e no JSON-LD | `index.html`, políticas |
-| Identificação do controlador (razão social, CNPJ, endereço, e-mail, DPO) | ⚪ | Alto | Placeholders `[INFORMAÇÃO A DEFINIR PELO RESPONSÁVEL]` | `privacidade/index.html` |
+| Identificação do controlador | 🟡 parcial | Médio | CNPJ 41.437.622/0001-69, titular Thaina Lidia Stocchero, e-mail cellfiebarreirinha@gmail.com, endereço/CEP e foro (Curitiba/PR) preenchidos; **falta confirmar a grafia exata da razão social do cartão CNPJ** | `privacidade/index.html`, `termos-de-uso/index.html` |
 | Bases legais de cada tratamento | ⚖️ | Alto | Hipóteses sinalizadas; **não definidas** | `privacidade/index.html`, `DATA-INVENTORY.md` |
 | Prazos de retenção legal (fiscal/consumerista) | ⚖️ | Médio | Sinalizado | `privacidade/index.html`, `DATA-INVENTORY.md` |
 | Transferência internacional (arts. 33–36) | ⚖️ | Médio | Sinalizado | `privacidade/index.html` |
@@ -65,15 +65,20 @@ técnica e documental possível para um site estático.
 
 ## Pendências do proprietário (⚪)
 
-1. Razão social + CNPJ (ou CPF) do responsável.
-2. Endereço oficial da empresa (se diferente do endereço da loja).
-3. E-mail dedicado a privacidade (ex.: `privacidade@dominio`).
-4. Encarregado/DPO: existe? nome e contato.
-5. Horário de funcionamento real e CEP correto (atualizar `index.html`,
-   políticas e JSON-LD).
-6. Comarca do foro nos Termos de Uso.
-7. Intenção de usar analytics/marketing no futuro (hoje: não usa).
-8. Canais ativos de e-mail marketing / listas de WhatsApp (hoje: não há).
+Já fornecidos: CNPJ (41.437.622/0001-69), titular (Thaina Lidia Stocchero),
+e-mail de contato (cellfiebarreirinha@gmail.com), CEP (80540-400), foro
+(Curitiba/PR). Encarregado/DPO: **não designado** (agente de pequeno porte).
+
+Ainda pendente:
+
+1. Grafia exata da **razão social** conforme o cartão CNPJ (hoje consta o
+   nome do titular como aproximação).
+2. Endereço oficial da empresa, se for diferente do endereço da loja.
+3. **Horário de funcionamento real** — hoje está o exemplo Seg–Sex 9h–18h /
+   Sáb 9h–13h em `index.html`, nas políticas e no JSON-LD.
+4. Intenção de usar analytics/marketing no futuro (hoje: não usa).
+5. Canais ativos de e-mail marketing / listas de transmissão de WhatsApp
+   (hoje: não há).
 
 ## Pendências jurídicas (⚖️)
 

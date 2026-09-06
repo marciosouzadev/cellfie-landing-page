@@ -7,9 +7,9 @@ e validar prazos com jurídico (⚖️).
 
 | Papel | Contato |
 |--|--|
-| Responsável técnico | ⚪ [NOME / TELEFONE A DEFINIR] |
-| Responsável pela empresa | ⚪ [NOME A DEFINIR] · WhatsApp (41) 99805-4597 |
-| Encarregado/DPO | ⚪ [SE APLICÁVEL] |
+| Responsável técnico | ⚪ [manutenção do site — definir] |
+| Responsável pela empresa | Thaina Lidia Stocchero · cellfiebarreirinha@gmail.com · WhatsApp (41) 99805-4597 |
+| Encarregado/DPO | Não designado — usar o e-mail acima |
 | Provedor de hospedagem | GitHub Support — https://support.github.com/ |
 | Autoridade (LGPD) | ANPD — https://www.gov.br/anpd/ |
 

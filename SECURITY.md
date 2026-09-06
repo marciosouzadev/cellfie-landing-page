@@ -4,8 +4,8 @@
 
 Encontrou um problema de segurança neste site ou neste repositório?
 
+- E-mail: cellfiebarreirinha@gmail.com
 - WhatsApp: (41) 99805-4597 — https://wa.me/5541998054597
-- E-mail de segurança: ⚪ `[A DEFINIR PELO RESPONSÁVEL]`
 - Consulte também `/.well-known/security.txt`
 
 Por favor:

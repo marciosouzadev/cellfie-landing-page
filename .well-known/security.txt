@@ -5,8 +5,8 @@
 # responsável pelos canais abaixo. Não explore, não divulgue publicamente
 # antes da correção e não acesse dados de terceiros.
 
+Contact: mailto:cellfiebarreirinha@gmail.com
 Contact: https://wa.me/5541998054597
-# Contact: mailto:[E-MAIL DE SEGURANCA A DEFINIR PELO RESPONSAVEL]
 Expires: 2027-09-05T00:00:00.000Z
 Preferred-Languages: pt-BR, pt
 Canonical: https://marciosouzadev.github.io/cellfie-landing-page/.well-known/security.txt

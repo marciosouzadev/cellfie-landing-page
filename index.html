@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-src 'none'; child-src 'none'; object-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#0E0E0F">
+  <meta name="theme-color" content="#0D0D0E">
   <meta name="robots" content="index, follow, max-image-preview:large">
 
   <title>Cellfie Barreirinha</title>
@@ -28,6 +28,7 @@
   <link rel="icon" type="image/jpeg" href="logo.jpeg">
   <link rel="apple-touch-icon" href="logo.jpeg">
 
+  <link rel="preload" as="image" href="img/loja.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -57,29 +58,38 @@
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- Biblioteca de ícones (SVG embutido, sem requisições externas) -->
+  <!-- Ícones (SVG embutido, sem requisições externas) -->
   <svg class="icon-defs" aria-hidden="true" focusable="false" width="0" height="0">
     <defs>
-      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l-1.1 11.2a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
-      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M15.5 4.5a4.5 4.5 0 0 0-5.9 5.6L4 15.7 8.3 20l5.6-5.6a4.5 4.5 0 0 0 5.6-5.9l-2.7 2.7-2.8-.6-.6-2.8 2.5-2.5Z"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 2.7v5.6c0 4.6-3 8.4-7 9.7-4-1.3-7-5.1-7-9.7V5.7L12 3Z"/><path d="M8.7 12.2l2.2 2.2 4.4-4.6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21c4.5-4.2 7-7.4 7-10.6A7 7 0 0 0 5 10.4C5 13.6 7.5 16.8 12 21Z"/><circle cx="12" cy="10.2" r="2.6"/></symbol>
-      <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-2.4-1.6L13.2 21l-2.4-1.6L8.4 21 6 19.4V3Z"/><path d="M9 8h6M9 12h6"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-      <symbol id="i-whats" viewBox="0 0 24 24"><path d="M19 5A9.8 9.8 0 0 0 4.4 17.7L3 22l4.4-1.4A9.8 9.8 0 1 0 19 5Zm-7 17.8a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.25-.13-1.5-.74-1.7-.82-.23-.09-.4-.13-.56.12-.16.25-.64.82-.79.99-.14.16-.29.18-.54.06-1.5-.75-2.48-1.34-3.47-3.03-.26-.45.26-.42.75-1.4.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.16 1.75 2.67 4.25 3.74 1.58.68 2.2.74 2.99.62.48-.07 1.5-.61 1.71-1.2.21-.59.21-1.09.15-1.2-.06-.11-.22-.17-.47-.29Z" stroke="none" fill="currentColor"/></symbol>
-      <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.15" stroke="none" fill="currentColor"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3.4l1.7 4.3-2.3 1.6a11 11 0 0 0 4.9 4.9l1.6-2.3L20.6 15V18.4a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3.6 5.6 2 2 0 0 1 6 3Z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M15.5 4.5a4.5 4.5 0 0 0-5.9 5.6L4 15.7 8.3 20l5.6-5.6a4.5 4.5 0 0 0 5.6-5.9l-2.7 2.7-2.8-.6-.6-2.8 2.5-2.5Z"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3Z"/></symbol>
+      <symbol id="i-whats" viewBox="0 0 24 24"><path d="M19 5A9.8 9.8 0 0 0 4.4 17.7L3 22l4.4-1.4A9.8 9.8 0 1 0 19 5Zm-7 17.8a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.25-.13-1.5-.74-1.7-.82-.23-.09-.4-.13-.56.12-.16.25-.64.82-.79.99-.14.16-.29.18-.54.06-1.5-.75-2.48-1.34-3.47-3.03-.26-.45.26-.42.75-1.4.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.16 1.75 2.67 4.25 3.74 1.58.68 2.2.74 2.99.62.48-.07 1.5-.61 1.71-1.2.21-.59.21-1.09.15-1.2-.06-.11-.22-.17-.47-.29Z" stroke="none" fill="currentColor"/></symbol>
     </defs>
   </svg>
 
+  <!-- Barra superior -->
+  <div class="topbar" id="topo">
+    <div class="wrap topbar__inner">
+      <span class="topbar__item">
+        <svg class="ic" aria-hidden="true"><use href="#i-pin"></use></svg>
+        Av. Anita Garibaldi, 6148 — Barreirinha, Curitiba
+      </span>
+      <span class="topbar__item topbar__item--hours">
+        <svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>
+        Seg a sex 9h–18h · Sáb 9h–13h
+      </span>
+      <a class="topbar__social" href="https://instagram.com/celfie_barreirinha" target="_blank" rel="noopener noreferrer">@celfie_barreirinha</a>
+    </div>
+  </div>
+
   <!-- Cabeçalho -->
-  <header class="site-header" id="topo">
+  <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="brand" href="#topo" aria-label="Cellfie — página inicial">
-        <img class="brand__logo" src="logo.jpeg" width="160" height="40" alt="Cellfie — Acessórios e Assistência">
+        <img class="brand__logo" src="logo.jpeg" width="168" height="42" alt="Cellfie — Acessórios e Assistência">
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
@@ -91,13 +101,11 @@
           <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#loja">A loja</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li class="nav__cta">
-            <a class="btn btn--primary btn--sm" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
-              <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
-              WhatsApp
-            </a>
-          </li>
         </ul>
+        <a class="btn btn--primary btn--sm" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
+          WhatsApp
+        </a>
       </nav>
     </div>
   </header>
@@ -106,164 +114,184 @@
 
     <!-- Hero -->
     <section class="hero" id="inicio">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow">Acessórios · Assistência técnica</p>
-          <h1>O cuidado que o seu celular merece, aqui no Barreirinha</h1>
-          <p class="lead">
-            A Cellfie é a nova loja de acessórios e assistência técnica de celulares em Curitiba,
-            dentro do Supermercado Condor da Avenida Anita Garibaldi. Atendimento rápido,
-            peças com garantia e orçamento sem compromisso.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
-              <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
-              Falar no WhatsApp
-            </a>
-            <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Anita%20Garibaldi%2C%206148%2C%20Barreirinha%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer">
-              Como chegar
-              <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg>
-            </a>
-          </div>
-          <ul class="hero__meta">
-            <li><svg class="ic" aria-hidden="true"><use href="#i-spark"></use></svg> Loja recém-inaugurada</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Diagnóstico gratuito</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Orçamento na hora</li>
-          </ul>
-        </div>
-
-        <div class="hero__brand" aria-hidden="true">
-          <div class="hero__glow"></div>
-          <img class="hero__logo" src="logo.jpeg" width="520" height="416" alt="">
+      <div class="hero__copy">
+        <p class="eyebrow">Acessórios · Assistência técnica</p>
+        <h1>O cuidado que o seu celular merece, aqui no Barreirinha</h1>
+        <p class="hero__lead">
+          A Cellfie é a nova loja de acessórios e assistência técnica de celulares em Curitiba,
+          dentro do Supermercado Condor da Avenida Anita Garibaldi. Atendimento rápido,
+          peças com garantia e orçamento sem compromisso.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
+            <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
+            Falar no WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Anita%20Garibaldi%2C%206148%2C%20Barreirinha%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer">
+            Como chegar
+            <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
       </div>
+      <figure class="hero__media">
+        <picture>
+          <source srcset="img/loja.webp" type="image/webp">
+          <img src="img/loja.jpg" width="1000" height="1333"
+               alt="Quiosque da Cellfie dentro do Supermercado Condor, com vitrines de acessórios, fones, caixas de som e celulares em exposição"
+               fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
     </section>
 
-    <!-- Serviços -->
-    <section class="section" id="servicos">
-      <div class="wrap">
+    <!-- Faixa de destaques -->
+    <div class="wrap">
+      <div class="strip">
+        <div class="strip__item">
+          <strong>Loja recém-inaugurada</strong>
+          <span>Dentro do Condor da Anita Garibaldi</span>
+        </div>
+        <div class="strip__item">
+          <strong>Diagnóstico gratuito</strong>
+          <span>Você entende o problema antes de pagar</span>
+        </div>
+        <div class="strip__item">
+          <strong>Orçamento na hora</strong>
+          <span>Sem espera e sem compromisso</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+
+      <!-- Serviços -->
+      <section class="section" id="servicos">
         <header class="section__head">
-          <p class="eyebrow">O que fazemos</p>
-          <h2>Duas frentes, um só lugar</h2>
-          <p class="section__sub">Da película que protege até o reparo que devolve seu aparelho ao normal.</p>
+          <div>
+            <p class="eyebrow">O que fazemos</p>
+            <h2>Duas frentes, um só lugar</h2>
+          </div>
+          <p>Da película que protege até o reparo que devolve seu aparelho ao normal.</p>
         </header>
 
-        <div class="panels">
-          <article class="panel">
-            <div class="panel__icon"><svg class="ic" aria-hidden="true"><use href="#i-bag"></use></svg></div>
+        <div class="services__grid">
+          <article class="svc">
+            <div class="svc__top">
+              <span class="svc__icon"><svg class="ic" aria-hidden="true"><use href="#i-phone"></use></svg></span>
+              <span class="svc__num">01</span>
+            </div>
             <h3>Acessórios</h3>
-            <p>Tudo para proteger e completar o seu aparelho, das principais marcas.</p>
-            <ul class="ticks">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Capas e cases resistentes</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Películas 3D e de vidro temperado</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Carregadores, cabos e power banks</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Fones e caixas de som</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Suportes e adaptadores</li>
+            <p class="svc__desc">Tudo para proteger e completar o seu aparelho, das principais marcas.</p>
+            <ul class="svc__list">
+              <li>Capas e cases resistentes</li>
+              <li>Películas 3D e de vidro temperado</li>
+              <li>Carregadores, cabos e power banks</li>
+              <li>Fones e caixas de som</li>
+              <li>Suportes e adaptadores</li>
             </ul>
           </article>
 
-          <article class="panel">
-            <div class="panel__icon"><svg class="ic" aria-hidden="true"><use href="#i-wrench"></use></svg></div>
+          <article class="svc">
+            <div class="svc__top">
+              <span class="svc__icon"><svg class="ic" aria-hidden="true"><use href="#i-wrench"></use></svg></span>
+              <span class="svc__num">02</span>
+            </div>
             <h3>Assistência técnica</h3>
-            <p>Reparos com diagnóstico transparente e peças com garantia formal.</p>
-            <ul class="ticks">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Troca de tela e touch</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Troca de bateria</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Reparo de conector de carga</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Limpeza e revisão geral</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> Diagnóstico gratuito</li>
+            <p class="svc__desc">Reparos com diagnóstico transparente e peças com garantia formal.</p>
+            <ul class="svc__list">
+              <li>Troca de tela e touch</li>
+              <li>Troca de bateria</li>
+              <li>Reparo de conector de carga</li>
+              <li>Limpeza e revisão geral</li>
+              <li>Diagnóstico gratuito</li>
             </ul>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Diferenciais -->
-    <section class="section section--alt" id="diferenciais">
-      <div class="wrap">
-        <header class="section__head">
+      <!-- Diferenciais -->
+      <section class="section" id="diferenciais">
+        <header class="section__head section__head--stack">
           <p class="eyebrow">Por que a Cellfie</p>
           <h2>Uma loja nova, um jeito sério de atender</h2>
         </header>
 
-        <div class="edges">
-          <article class="edge">
-            <svg class="ic ic--lg" aria-hidden="true"><use href="#i-clock"></use></svg>
+        <div class="diffs">
+          <div class="diff">
+            <span class="diff__rule"></span>
             <h3>Atendimento no mesmo dia</h3>
             <p>A maioria dos reparos simples fica pronta enquanto você faz as compras no Condor.</p>
-          </article>
-          <article class="edge">
-            <svg class="ic ic--lg" aria-hidden="true"><use href="#i-shield"></use></svg>
+          </div>
+          <div class="diff">
+            <span class="diff__rule"></span>
             <h3>Peças com garantia</h3>
             <p>Componentes testados e garantia formal em todo serviço de assistência técnica.</p>
-          </article>
-          <article class="edge">
-            <svg class="ic ic--lg" aria-hidden="true"><use href="#i-receipt"></use></svg>
+          </div>
+          <div class="diff">
+            <span class="diff__rule"></span>
             <h3>Orçamento sem compromisso</h3>
             <p>Você só aprova o reparo depois de saber exatamente quanto vai custar.</p>
-          </article>
-          <article class="edge">
-            <svg class="ic ic--lg" aria-hidden="true"><use href="#i-pin"></use></svg>
+          </div>
+          <div class="diff">
+            <span class="diff__rule"></span>
             <h3>Fácil de achar</h3>
             <p>Dentro do Supermercado Condor da Anita Garibaldi, com estacionamento no local.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- A loja / Localização -->
-    <section class="section" id="loja">
-      <div class="wrap local">
-        <div class="local__text">
-          <p class="eyebrow">Onde estamos</p>
-          <h2>Passe na loja</h2>
-          <p class="section__sub">Estamos anexos ao Supermercado Condor, na Barreirinha. Chega de perto e traz o aparelho.</p>
-
-          <address class="card card--address">
-            <strong>Cellfie — Acessórios e Assistência</strong>
-            <span>Av. Anita Garibaldi, 6148 — Barreirinha</span>
-            <span>Curitiba – PR · CEP 80540-400</span>
-            <span class="muted">Anexo ao Supermercado Condor</span>
-          </address>
-
-          <div class="hours">
-            <div class="hours__row"><span>Segunda a sexta</span><span class="num">9h – 18h</span></div>
-            <div class="hours__row"><span>Sábado</span><span class="num">9h – 13h</span></div>
-            <div class="hours__row"><span>Domingo</span><span class="num">Fechado</span></div>
-          </div>
-
-          <div class="local__actions">
-            <a class="btn btn--primary" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
-              <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
-              Falar no WhatsApp
-            </a>
-            <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Anita%20Garibaldi%2C%206148%2C%20Barreirinha%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer">
-              Abrir no mapa
-              <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg>
-            </a>
           </div>
         </div>
+      </section>
 
-        <div class="local__aside" aria-hidden="true">
-          <div class="local__card">
-            <svg class="ic ic--xl" aria-hidden="true"><use href="#i-pin"></use></svg>
-            <p class="local__card-title">Barreirinha · Curitiba</p>
-            <p class="local__card-sub">Av. Anita Garibaldi, 6148</p>
+      <!-- A loja -->
+      <section class="section" id="loja">
+        <div class="loja">
+          <div class="loja__text">
+            <p class="eyebrow">Onde estamos</p>
+            <h2>Passe na loja</h2>
+            <p>Estamos anexos ao Supermercado Condor, na Barreirinha. Chega de perto e traz o aparelho.</p>
+            <div class="loja__actions">
+              <a class="btn btn--primary" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
+                <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
+                Falar no WhatsApp
+              </a>
+              <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Anita%20Garibaldi%2C%206148%2C%20Barreirinha%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer">
+                Abrir no mapa
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="loja__card">
+            <p class="loja__card-name">Cellfie — Acessórios e Assistência</p>
+            <address>
+              Av. Anita Garibaldi, 6148 — Barreirinha<br>
+              Curitiba – PR · CEP 80540-400<br>
+              Anexo ao Supermercado Condor
+            </address>
+            <table class="hours">
+              <tbody>
+                <tr><td>Segunda a sexta</td><td>9h – 18h</td></tr>
+                <tr><td>Sábado</td><td>9h – 13h</td></tr>
+                <tr><td>Domingo</td><td>Fechado</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+    </div>
 
     <!-- Chamada final -->
     <section class="cta" id="contato">
       <div class="wrap cta__inner">
-        <p class="eyebrow">Fale com a gente</p>
-        <h2>Alguma dúvida sobre o seu aparelho?</h2>
-        <p>Manda uma mensagem no WhatsApp — a gente responde rápido e sem compromisso.</p>
-        <a class="btn btn--primary btn--lg" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
-          <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
-          WhatsApp (41) 99805-4597
-        </a>
+        <div>
+          <p class="eyebrow">Fale com a gente</p>
+          <h2>Alguma dúvida sobre o seu aparelho?</h2>
+          <p>Manda uma mensagem no WhatsApp — a gente responde rápido e sem compromisso.</p>
+        </div>
+        <div class="cta__side">
+          <a class="btn btn--ink btn--lg" href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer">
+            <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
+            WhatsApp (41) 99805-4597
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -272,11 +300,11 @@
   <footer class="site-footer">
     <div class="wrap site-footer__grid">
       <div class="site-footer__brand">
-        <img src="logo.jpeg" width="180" height="45" alt="Cellfie — Acessórios e Assistência">
+        <img src="logo.jpeg" width="180" height="54" alt="Cellfie — Acessórios e Assistência">
         <p>Acessórios e assistência técnica de celulares em Curitiba.</p>
       </div>
 
-      <nav class="site-footer__col" aria-label="Links do rodapé">
+      <nav class="site-footer__col" aria-label="Navegação do rodapé">
         <h4>Navegação</h4>
         <ul>
           <li><a href="#inicio">Início</a></li>
@@ -293,14 +321,6 @@
           <li><a href="https://instagram.com/celfie_barreirinha" target="_blank" rel="noopener noreferrer">@celfie_barreirinha</a></li>
           <li>Av. Anita Garibaldi, 6148 — Barreirinha</li>
         </ul>
-        <div class="socials">
-          <a href="https://wa.me/5541998054597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cellfie." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <svg class="ic" aria-hidden="true"><use href="#i-whats"></use></svg>
-          </a>
-          <a href="https://instagram.com/celfie_barreirinha" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg class="ic" aria-hidden="true"><use href="#i-insta"></use></svg>
-          </a>
-        </div>
       </div>
     </div>
 
